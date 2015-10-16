@@ -15,8 +15,8 @@ The implementation has two parts:
      
      Every kth iteration is as follows:
      
-     1. Given a Candidate Itemset of size k (obtained from previous iteration) Dataset of size k is generated (users mapped          to corresponding Itemsets of size k). Implemented in DataSetGen.java.
-     2. Take frequency count of each Itemset and generate Candidate Itemsets of size k that pass the min support. Used Task          Level Combining for optimization. Implemented in FrequentItemSetGen.java.
+     1. Given a Candidate Itemset of size k (obtained from previous iteration) Dataset of size k is generated (users mapped to corresponding Itemsets of size k). Implemented in DataSetGen.java.
+     2. Take frequency count of each Itemset and generate Candidate Itemsets of size k that pass the min support. Used Task Level Combining for optimization. Implemented in FrequentItemSetGen.java.
      3. Generate Candidate Itemsets of size k+1 by performing Secondary Sort. Implemented in CandidateSetGen.java. The results will be input to next iteration.
      
      The iterations will continue till no Frequent Itemsets are produced that pass the min support.

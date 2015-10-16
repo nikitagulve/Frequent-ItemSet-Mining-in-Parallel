@@ -9,17 +9,19 @@ The file GenreSetGeneration.java performs a preprocessing step to find all the g
 
 The implementation has two parts: 
 
-  -> The first part is to calculate Candidate Itemsets of size 2. This is done in file AprioriItemSet2.java. Given a Dataset      which is in the form of Itemsets of size 1, we use MapReduce's join ability to form Itemsets of size 2. 
+  -> The first part is to calculate Candidate Itemsets of size 2. This is done in file AprioriItemSet2.java. Given a Dataset      which is in the form of Itemsets of size 1, we use MapReduce's Join ability to form Itemsets of size 2. 
   
   -> The second part iteratively calculates Itemsets of size k (k>2). This is done using components: DataSetGen.java,             FrequentItemSetGen.java, CandidateSetGen.java, AprioriItemSetK.java. 
      
      Every kth iteration is as follows:
      
-     1. Given a Candidate Itemset of size k (obtained from previous iteration) Dataset of size k is generated (users mapped to corresponding Itemsets of size k). Implemented in DataSetGen.java.
+     1. Given a Candidate Itemset of size k (obtained from previous iteration), Dataset of size k is generated (users mapped to corresponding Itemsets of size k). Implemented in DataSetGen.java.
      2. Take frequency count of each Itemset and generate Candidate Itemsets of size k that pass the min support. Used Task Level Combining for optimization. Implemented in FrequentItemSetGen.java.
      3. Generate Candidate Itemsets of size k+1 by performing Secondary Sort. Implemented in CandidateSetGen.java. The results will be input to next iteration.
      
-     The iterations will continue till no Frequent Itemsets are produced that pass the min support.
+     The iterations will continue till no Frequent Itemsets are produced that pass min support.
+     
+The file AprioriItemSetK.java contains driver program (main method) that drives all the jobs in iteration.
      
 The calculation of Datasets in every iteration is an overhead to achieve Pruning. This technique helps to achieve this task in parallel which is daunting otherwise.
 

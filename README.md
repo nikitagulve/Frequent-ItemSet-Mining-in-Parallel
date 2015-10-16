@@ -5,7 +5,7 @@ More details of implementation...
 
 The file GenreSetGeneration.java performs a preprocessing step to find all the genres associated with users. Since, the data is in the form of two files: users mapped with songs and songs mapped with genres, a Join operation is performed to get the genres of corresponding users. 
 
-(Note: The term Itemset corresponds to Genresets.)
+(Note: The term Itemset corresponds to Genreset.)
 
 The implementation has two parts: 
 
